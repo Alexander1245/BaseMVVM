@@ -5,6 +5,9 @@ The MVVM Core library
 The library consists of the set of base classes and interfaces to simplify developing of the client-server mobile apps. </br>
 It has been divided to three different layers: domain, data and presenation to follows the Clean Architecture. </br>
 
+
+<h2><a href="https://github.com/Alexander1245/BaseMVVM/tree/master/app/src/main/java/com/dart69/basemvvm/main">Example of usage</a></h2>
+
 ## Installation:
 Add following repositories to the <i>settings.gradle</i> file.
 ```groovy
