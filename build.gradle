@@ -1,0 +1,65 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.4.2' apply false
+    id 'com.android.library' version '7.4.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
+}
+
+version "1.0.0"
+group "com.github.Alexander1245.BaseMVVM"
+
+ext {
+    def core_ktx_version = "1.10.0"
+    def appcompat_version = "1.6.1"
+    def material_version = "1.8.0"
+    def lifecycle_version = "2.6.1"
+    def coroutines_version = "1.6.4"
+    def junit_version = "4.13.2"
+    def junit_android_ext_version = "1.1.5"
+    def espresso_core_version = "3.5.1"
+    def navigation_version = "2.5.3"
+    def fragment_version = "1.5.6"
+    def retrofit_version = "2.9.0"
+
+    androidCore = [
+            "androidx.core:core-ktx:$core_ktx_version",
+            "androidx.appcompat:appcompat:$appcompat_version",
+            "com.google.android.material:material:$material_version",
+            "androidx.fragment:fragment-ktx:$fragment_version",
+    ]
+
+    androidLifecycle = [
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+    ]
+
+    androidNavigation = [
+            "androidx.navigation:navigation-fragment-ktx:$navigation_version",
+            "androidx.navigation:navigation-ui-ktx:$navigation_version",
+    ]
+
+    androidCoroutines = [
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+    ]
+
+    androidRetrofit = [
+            "com.squareup.retrofit2:retrofit:$retrofit_version",
+            "com.squareup.retrofit2:converter-gson:$retrofit_version",
+    ]
+
+    unitTests = [
+            "androidx.lifecycle:lifecycle-runtime-testing:$lifecycle_version",
+            "junit:junit:$junit_version",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version",
+    ]
+
+    androidTests = [
+            "androidx.test.ext:junit:$junit_android_ext_version",
+            "androidx.test.espresso:espresso-core:$espresso_core_version",
+    ]
+
+    coreCoroutines = [
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
+    ]
+}

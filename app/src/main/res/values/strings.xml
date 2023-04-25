@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BaseMVVM</string>
+    <string name="reset">Reset</string>
+    <string name="points_n">Points: %1d</string>
+    <string name="awesome">Awesome!</string>
+    <string name="wow">Wow!</string>
+    <string name="you_have_n_points">You have %1d points.</string>
+    <string name="click_to_get_point">Click here to get a point</string>
+</resources>
