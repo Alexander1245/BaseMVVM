@@ -38,6 +38,10 @@ class MainViewModel : CommunicatorViewModel<MainViewModel.MainState, ViewEvent>(
         }
     }
 
+    fun deletePet(pet: Pet) {
+        states.update { current -> current.copy(pets = current.pets - pet) }
+    }
+
     fun reset() {
         states.value = MainState()
     }
@@ -46,5 +50,6 @@ class MainViewModel : CommunicatorViewModel<MainViewModel.MainState, ViewEvent>(
         val points: Int = 0,
         val isResetEnabled: Boolean = false,
         val message: StringResource = R.string.click_to_get_point.asStringResource(),
+        val pets: List<Pet> = createPets(15),
     )
 }
