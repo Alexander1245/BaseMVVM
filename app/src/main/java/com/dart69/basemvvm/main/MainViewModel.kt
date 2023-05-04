@@ -2,6 +2,8 @@ package com.dart69.basemvvm.main
 
 import androidx.lifecycle.viewModelScope
 import com.dart69.basemvvm.R
+import com.dart69.basemvvm.main.models.Pet
+import com.dart69.basemvvm.main.models.createPets
 import com.dart69.mvvm.events.Button
 import com.dart69.mvvm.events.ShowSnackBarWithAction
 import com.dart69.mvvm.events.ViewEvent
@@ -46,5 +48,6 @@ class MainViewModel : CommunicatorViewModel<MainViewModel.MainState, ViewEvent>(
         val points: Int = 0,
         val isResetEnabled: Boolean = false,
         val message: StringResource = R.string.click_to_get_point.asStringResource(),
+        val pets: List<Pet> = createPets(15),
     )
 }
