@@ -2,8 +2,6 @@ package com.dart69.basemvvm.main
 
 import androidx.lifecycle.viewModelScope
 import com.dart69.basemvvm.R
-import com.dart69.basemvvm.main.models.Pet
-import com.dart69.basemvvm.main.models.createPets
 import com.dart69.mvvm.events.Button
 import com.dart69.mvvm.events.ShowSnackBarWithAction
 import com.dart69.mvvm.events.ViewEvent
@@ -38,6 +36,10 @@ class MainViewModel : CommunicatorViewModel<MainViewModel.MainState, ViewEvent>(
                 message = R.string.points_n.asStringResource(points),
             )
         }
+    }
+
+    fun deletePet(pet: Pet) {
+        states.update { current -> current.copy(pets = current.pets - pet) }
     }
 
     fun reset() {

@@ -6,24 +6,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
 import com.dart69.mvvm.recyclerview.base.BaseItemCallback
-import com.dart69.mvvm.recyclerview.base.BaseListAdapter
+import com.dart69.mvvm.recyclerview.base.BaseAdapter
 
 typealias BindingProvider<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB
 typealias ViewHolderBinderScope<T, VB> = ViewHolder.(T, VB) -> Unit
-typealias ViewHolderListenersScope<T, VB> = BindingListAdapter<T, VB>.BindingViewHolder.(VB) -> Unit
+typealias ViewHolderListenersScope<T, VB> = BindingAdapter<T, VB>.BindingViewHolder.(VB) -> Unit
 typealias ViewHolderClickListener<T> = (T, View) -> Unit
 
-class BindingListAdapter<T : Any, VB : ViewBinding> private constructor(
+open class BindingAdapter<T : Any, VB : ViewBinding> private constructor(
     diffCallback: BaseItemCallback<T>,
     private val provider: BindingProvider<VB>,
     private val binderScope: ViewHolderBinderScope<T, VB>,
     private val listenersScope: ViewHolderListenersScope<T, VB>,
-) : BaseListAdapter<T, BindingListAdapter<T, VB>.BindingViewHolder>(diffCallback) {
+) : BaseAdapter<T, BindingAdapter<T, VB>.BindingViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingViewHolder =
         BindingViewHolder(provider(LayoutInflater.from(parent.context), parent, ATTACH_TO_PARENT))
 
-    inner class BindingViewHolder(
+    open inner class BindingViewHolder(
         private val binding: VB
     ) : BaseViewHolder<T, VB>(binding) {
         fun View.onClick(block: ViewHolderClickListener<T>) = setOnClickListener { view ->
@@ -56,7 +56,7 @@ class BindingListAdapter<T : Any, VB : ViewBinding> private constructor(
             listenersScope = block
         }
 
-        fun build(): BindingListAdapter<T, VB> = BindingListAdapter(
+        fun build(): BindingAdapter<T, VB> = BindingAdapter(
             diffCallback = itemCallback,
             provider = provider,
             binderScope = binderScope,

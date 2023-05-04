@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseListAdapter<T : Any, VH : BaseListAdapter.BaseViewHolder<T, *>>(
+abstract class BaseAdapter<T : Any, VH : BaseAdapter.BaseViewHolder<T, *>>(
     diffCallback: BaseItemCallback<T>,
 ) : ListAdapter<T, VH>(diffCallback) {
 
