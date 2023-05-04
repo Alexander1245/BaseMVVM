@@ -9,6 +9,7 @@ import com.dart69.basemvvm.databinding.ItemPetBinding
 import com.dart69.basemvvm.main.models.Pet
 import com.dart69.mvvm.recyclerview.base.BaseItemCallback
 import com.dart69.mvvm.recyclerview.binding.BindingListAdapter
+import com.dart69.mvvm.recyclerview.decoration.linear.MarginItemDecoration
 import com.dart69.mvvm.screens.Screen
 import com.dart69.mvvm.viewmodels.repeatOnStarted
 import com.google.android.material.snackbar.Snackbar
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity(), Screen<ActivityMainBinding, MainViewMo
         binding.recyclerView.apply {
             adapter = petAdapter
             layoutManager = LinearLayoutManager(context)
+            addItemDecoration(MarginItemDecoration(24))
         }
 
         repeatOnStarted(this) {
