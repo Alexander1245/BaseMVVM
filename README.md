@@ -25,7 +25,7 @@ Add any or all of these dependencies to your <i>build.gradle</i> file of Android
 P.s. The version below is same as release tag. You can find the most actual version in the release section.
 ```groovy
   dependencies {
-    def version = "1.0.0"
+    def version = "1.0.1"
     implementation "com.github.Alexander1245.BaseMVVM:presentation:$version"
     implementation "com.github.Alexander1245.BaseMVVM:domain:$version"
     implementation "com.github.Alexander1245.BaseMVVM:data:$version"
