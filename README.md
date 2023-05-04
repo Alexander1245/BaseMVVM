@@ -26,9 +26,9 @@ P.s. The version below is same as release tag. You can find the most actual vers
 ```groovy
   dependencies {
     def version = "1.0.0"
-    implementation "com.github.Alexander1245.BaseMVVM:presentation:version"
-    implementation "com.github.Alexander1245.BaseMVVM:domain:version"
-    implementation "com.github.Alexander1245.BaseMVVM:data:version"
+    implementation "com.github.Alexander1245.BaseMVVM:presentation:$version"
+    implementation "com.github.Alexander1245.BaseMVVM:domain:$version"
+    implementation "com.github.Alexander1245.BaseMVVM:data:$version"
   }
 ```
 
