@@ -1,8 +1,10 @@
 package com.dart69.mvvm.recyclerview.binding
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.viewbinding.ViewBinding
 import com.dart69.mvvm.recyclerview.base.BaseItemCallback
@@ -26,8 +28,22 @@ open class BindingAdapter<T : Any, VB : ViewBinding> private constructor(
     open inner class BindingViewHolder(
         private val binding: VB
     ) : BaseViewHolder<T, VB>(binding) {
+        private val currentItem: T
+            get() = currentList[bindingAdapterPosition]
+
         fun View.onClick(block: ViewHolderClickListener<T>) = setOnClickListener { view ->
-            block(currentList[bindingAdapterPosition], view)
+            block(currentItem, view)
+        }
+
+        fun View.onLongClick(block: ViewHolderClickListener<T>) = setOnLongClickListener { view ->
+            block(currentItem, view)
+            true
+        }
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        fun View.onContextClick(block: ViewHolderClickListener<T>) = setOnContextClickListener { view ->
+            block(currentItem, view)
+            true
         }
 
         init {
