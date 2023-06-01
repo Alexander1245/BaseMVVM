@@ -5,12 +5,10 @@ import retrofit2.Response
 
 interface ResponseWrapper {
     suspend fun <T> wrap(
-        errorCodeMapper: Mapper<Int, Throwable>,
         block: suspend () -> Response<T>,
     ): T
 }
 
 suspend fun <T> wrapResponseErrors(
-    errorCodeMapper: Mapper<Int, Throwable>,
     block: suspend () -> Response<T>,
-): T = ResponseWrapperImpl().wrap(errorCodeMapper, block)
+): T = ResponseWrapperImpl().wrap(block)
